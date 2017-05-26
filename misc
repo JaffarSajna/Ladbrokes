@@ -1,0 +1,237 @@
+{ "project": [
+     {"id": 1, "title": "Project 1"}
+  ],
+  "releases":[
+      {"id":1, "groupid":1,"title":"Test Title","start_time":"Wed May 24 2017 19:23:40 GMT+0530","end_time":"Wed May 24 2017 20:23:40 GMT+0530"}
+      ]
+
+}
+
+
+
+{id: 1, title: 'Project 1'},
+{id: 2, title: 'Project 2'},
+{id: 3, title: 'Project 3'},
+{id: 4, title: 'Project 4'},
+{id: 5, title: 'Project 5'}
+
+
+{id: 1, group: 1, title: 'Release 1 - Enhancement Changes', start_time: moment(), end_time: moment().add(1, 'hour'), canMove:false, itemProps:{'data-custom-attribute':'Random content'}},
+{id: 2, group: 2, title: 'item 2', start_time: moment().add(-0.5, 'hour'), end_time: moment().add(0.5, 'hour')},
+{id: 3, group: 5, title: 'item 3', start_time: moment().add(2, 'hour'), end_time: moment().add(3, 'hour')}
+
+return(
+			 		   <table className="table table-bordered">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>First Name</th>
+												<th>Last Name</th>
+												<th>Username</th>
+												<th>Edit</th>
+												<th>Delete</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td>Mark</td>
+												<td>Otto</td>
+												<td>@mdo</td>
+												<td><button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button></td>
+												<td><button type="button" className="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span className="glyphicon glyphicon-trash"></span></button></td>
+											</tr>
+											<tr>
+												<th scope="row">2</th>
+												<td>Jacob</td>
+												<td>Thornton</td>
+												<td>@fat</td>
+												<td><button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button></td>
+												<td><button type="button" className="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span className="glyphicon glyphicon-trash"></span></button></td>
+											</tr>
+											<tr>
+												<th scope="row">3</th>
+												<td>Larry</td>
+												<td>the Bird</td>
+												<td>@twitter</td>
+												<td><button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button></td>
+												<td><button type="button" className="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span className="glyphicon glyphicon-trash"></span></button></td>
+											</tr>
+										</tbody>
+			</table>
+		);
+
+
+////
+
+ <!--<Tab.Container id="left-tabs-example" defaultActiveKey="first">
+    <Row className="clearfix">
+      <Col sm={4}>
+        <Nav bsStyle="pills" stacked>
+          <NavItem eventKey="first">
+            Tab 1
+          </NavItem>
+          <NavItem eventKey="second">
+            Tab 2
+          </NavItem>
+        </Nav>
+      </Col>
+      <Col sm={8}>
+        <Tab.Content animation>
+          <Tab.Pane eventKey="first">
+			  <h2>Approved</h2>
+            <approvedReleases/>
+          </Tab.Pane>
+          <Tab.Pane eventKey="second">
+			  <h2>New</h2>
+            <approvedReleases/>
+          </Tab.Pane>
+        </Tab.Content>
+      </Col>
+    </Row>
+  </Tab.Container> 
+
+///aplink
+<nav  className="navbar navbar-inverse">
+  <div className="container-fluid">
+  <div className="navbar-header">
+    <Link className="navbar-brand" to="/home">Dashboard</Link>
+  </div>
+    <ul className="nav navbar-nav">
+    {menus.map((menu,i)=>
+    {if(menu.subMenus!==undefined)
+    {return(
+    <li className="dropdown">
+    <a className="dropdown-toggle" data-toggle="dropdown" href="#">{menu.description}
+    <span className="caret"></span></a>
+    <ul className="dropdown-menu">
+      {
+        menu.subMenus.map((submenu,i)=>
+        {return ( <li key={i}><Link key={submenu.id} to={submenu.path}>{submenu.description}</Link></li>)}
+      )
+      }
+    </ul>
+    </li>
+    )
+    }
+  else {
+    return(
+    <li key={i}><Link key={menu.id} to={menu.path}>{menu.description}</Link></li>)
+  }})}
+
+////Dashboard
+<div class="box pad30 bgwhite table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+                            <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+                            <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>											<tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>											<tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>											<tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>											<tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>											<tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+                            <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+                            <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+                            <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#EditUser"><span class="glyphicon glyphicon-edit"></span></button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

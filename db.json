@@ -1,0 +1,6 @@
+{
+"people" :[
+  {"id":1,"project":"Project1"},
+  {"id":2, "project":"Project2"},
+ ]
+}

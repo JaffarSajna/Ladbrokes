@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href=".%PUBLIC_URL%/css/bootstrap.min.css">
+    <link rel="stylesheet" href=".%PUBLIC_URL%/css/admin-style.css">
+    <script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+	  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body id="top">
+
+<div id="rootDashboard"></div>
+
+
+    <footer>
+    	<p class="mar0">&copy; 2017  Ladbrokes Betting & Gaming Ltd. All Rights Reserved.</p>
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="DeleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    	<div class="modal-dialog modal-sm" role="document">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    				<h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+    			</div>
+    			<div class="modal-body">
+    				<h3>You want to delete user?</h3>
+    			</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-danger pull-left">Delete</button>
+    				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="EditUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    	<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    				<h4 class="modal-title" id="myModalLabel">Edit Details</h4>
+    			</div>
+    			<div class="modal-body">
+    				<div class="pad30">
+    					<form>
+    						<div class="form-group">
+    							<label>First Name</label>
+    							<input class="form-control" required="" type="text">
+    						</div>
+    						<div class="form-group">
+    							<label>Last Name</label>
+    							<input class="form-control" required="" type="text">
+    						</div>
+    						<div class="form-group">
+    							<label>User Name</label>
+    							<input class="form-control" required="" type="text">
+    						</div>
+    						<div class="form-group">
+    							<label>Notes</label>
+    							<textarea class="form-control txtarea"></textarea>
+    						</div>
+    					</form>
+    				</div>
+    			</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-primary pull-left">Save changes</button>
+    				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    	<div class="modal-dialog modal-lg" role="document">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    				<h4 class="modal-title" id="myModalLabel">Add User</h4>
+    			</div>
+    			<div class="modal-body">
+    				<div class="pad30">
+    					<form>
+    						<div class="row">
+    							<div class="form-group col-md-6">
+    								<label>First Name</label>
+    								<input class="form-control" required="" type="text">
+    							</div>
+    							<div class="form-group col-md-6">
+    								<label>Last Name</label>
+    								<input class="form-control" required="" type="text">
+    							</div>
+    							<div class="clearfix"></div>
+    							<div class="form-group col-md-6">
+    								<label>Phone No</label>
+    								<input class="form-control" required="" type="text">
+    							</div>
+    							<div class="form-group col-md-6">
+    								<label>Email</label>
+    								<input class="form-control" required="" type="text">
+    							</div>
+    							<div class="col-md-12">
+    								<div class="form-group">
+    									<label>Notes</label>
+    									<textarea class="form-control txtarea"></textarea>
+    								</div>
+    								<div class="form-group">
+    									<label>Gender</label>
+    									<div>
+    										<label class="radio-inline">
+    											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+    											M </label>
+    										<label class="radio-inline">
+    											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+    											F </label>
+    									</div>
+    								</div>
+    								<div class="form-group">
+    									<label>Type of Service</label>
+    									<div>
+    										<label class="checkbox-inline">
+    											<input type="checkbox" id="inlineCheckbox1" value="option1">
+    											1 </label>
+    										<label class="checkbox-inline">
+    											<input type="checkbox" id="inlineCheckbox2" value="option2">
+    											2 </label>
+    										<label class="checkbox-inline">
+    											<input type="checkbox" id="inlineCheckbox3" value="option3">
+    											3 </label>
+    									</div>
+    								</div>
+    							</div>
+    						</div>
+    					</form>
+    				</div>
+    			</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-primary pull-left">Save changes</button>
+    				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,7 @@
+{
+"people":"localhost",
+	"port":8000,
+	"backup":{
+		"path":"~/fake_rest_api_backup/"
+	}
+}
