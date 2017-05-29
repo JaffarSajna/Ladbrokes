@@ -1,0 +1,98 @@
+
+
+{
+"releases" :	[{
+	"id":1,
+  "BusinessService": "aDesktop Sportsbook",
+  "RequestedBy": " Sivashankar Balasubramaniam ",
+  "Impact": " Medium ",
+  "Risk": " Low ",
+  "Description": " Change in request approval ",
+  "ChangeReason": " Deployment Automation change ",
+  "RiskDetail": "  ",
+  "WorstCaseScenario": " Rollback the previous build ",
+  "PreTesting": " Smoke Testing ",
+  "PostTesting": " Full Testing ",
+ "PlannedStartDate": "2017-05-30T14:30:00",
+  "PlannedEndDate": "2017-05-30T15:30:00",
+  "AdditionalInformation": "  "
+},
+				{
+					"id":2,
+  "BusinessService": "Desktop Sportsbook",
+  "RequestedBy": " Sivashankar Balasubramaniam ",
+  "Impact": " Medium ",
+  "Risk": " Low ",
+  "Description": " Change in request approval ",
+  "ChangeReason": " Deployment Automation change ",
+  "RiskDetail": "  ",
+  "WorstCaseScenario": " Rollback the previous build ",
+  "PreTesting": " Smoke Testing ",
+  "PostTesting": " Full Testing ",
+  "PlannedStartDate": "2017-05-30T14:30:00",
+  "PlannedEndDate": "2017-05-30T15:30:00",
+  "AdditionalInformation": "  "
+},
+				{
+					"id":3,
+  "BusinessService": "bDesktop Sportsbook",
+  "RequestedBy": " Sivashankar Balasubramaniam ",
+  "Impact": " Medium ",
+  "Risk": " Low ",
+  "Description": " Change in request approval ",
+  "ChangeReason": " Deployment Automation change ",
+  "RiskDetail": "  ",
+  "WorstCaseScenario": " Rollback the previous build ",
+  "PreTesting": " Smoke Testing ",
+  "PostTesting": " Full Testing ",
+ "PlannedStartDate": "2017-05-30T14:30:00",
+  "PlannedEndDate": "2017-05-30T15:30:00",
+  "AdditionalInformation": "  "
+}],
+"ApprovedPlans" :	[
+	{
+"Number":"CHG0045252",
+"RequestedBy": "Arumugam Ponmalai",
+		"LadbrokesBusinessService":"Openbet",
+                "Impact":"Medium",
+                "Risk":"High",
+                "Approval":"Approved",
+                "Stage":"Not Started",
+                "PlannedStartDate":"2017-05-25T14:30:00",
+                "PlannedEndDate":"2017-05-25T15:30:00",
+                "ProjectName":"Coral",
+                "ChangeReason":"Deployment Automation change",
+		"id":1
+},
+		{
+"Number":"CHG0045252",
+"RequestedBy": "Arumugam Ponmalai",
+		"LadbrokesBusinessService":"Openbet",
+                "Impact":"Medium",
+                "Risk":"High",
+                "Approval":"Approved",
+                "Stage":"Not Started",
+                "PlannedStartDate":"2017-05-25T14:30:00",
+                "PlannedEndDate":"2017-05-25T15:30:00",
+                "ProjectName":"Coral",
+                "ChangeReason":"Deployment Automation change",
+		"id":1
+},
+		{
+"Number":"CHG0045252",
+"RequestedBy": "Arumugam Ponmalai",
+		"LadbrokesBusinessService":"Openbet",
+                "Impact":"Medium",
+                "Risk":"High",
+                "Approval":"Approved",
+                "Stage":"Not Started",
+                "PlannedStartDate":"2017-05-25T14:30:00",
+                "PlannedEndDate":"2017-05-25T15:30:00",
+                "ProjectName":"Coral",
+                "ChangeReason":"Deployment Automation change",
+		"id":1
+}
+
+]
+}
+
