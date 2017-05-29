@@ -18,6 +18,7 @@ class MyRequest extends React.Component {
 	   this.close=this.close.bind(this);
 	      this.removeItem=this.removeItem.bind(this);
 	    this.open=this.open.bind(this);
+	   this.setEditTitle=this.setEditTitle.bind(this);
    }	
 	
 	
@@ -47,7 +48,9 @@ class MyRequest extends React.Component {
 			 this.setState({ showModal: false });
 	}
 	
-	
+	setEditTitle(){
+		this.setState({title:"Edit"});
+	}
 	
    render() {
 	   
@@ -76,7 +79,7 @@ class MyRequest extends React.Component {
   },
 			 {
     Header: props => <span>Edit</span>, // Custom header components! 
-    Cell: row=> (<button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button>) 
+    Cell: row=> (<button type="button" className="btn btn-default" onClick={this.setEditTitle} data-toggle="modal" data-target="#AddNewRequest"><span className="glyphicon glyphicon-edit"></span></button>) 
   }
 	, {
     Header: props => <span>Remove</span>, // Custom header components! ,
@@ -88,7 +91,7 @@ class MyRequest extends React.Component {
          <div>
             <h1>MyRequest...</h1>
 			  <MyRequestTable data={this.state.data} cols={columns} />
-			 <AddNewRequest data={this.state.data} additem={this.addItem}/>
+			 <AddNewRequest data={this.state.data} additem={this.addItem} title={this.state.title}/>
 			  
 			  <Modal show={this.state.showModal} onHide={this.close} >
           <Modal.Header closeButton>
