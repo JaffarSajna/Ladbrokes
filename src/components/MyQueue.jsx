@@ -11,11 +11,13 @@ class MyQueue extends React.Component {
 	
    constructor(props){
 	   super(props);
-	   this.state={data:[],active:false,showModal:false,currentData:0}
+	   this.state={data:[],plans:[],active:false,showModal:false,currentData:0,showReleaseModal: false}
 	   this.addItem=this.addItem.bind(this);
 	   this.close=this.close.bind(this);
-	      this.changeStatus=this.changeStatus.bind(this);
-	    this.open=this.open.bind(this);
+	   this.changeStatus=this.changeStatus.bind(this);
+	   this.open=this.open.bind(this);
+	   this.openReleaseModel=this.openReleaseModel.bind(this);
+	   this.closeReleaseModel=this.closeReleaseModel.bind(this);
    }	
 	
 	
@@ -28,9 +30,15 @@ class MyQueue extends React.Component {
   close() {
     this.setState({ showModal: false });
   }
+	closeReleaseModel() {
+    this.setState({ showReleaseModal: false });
+  }
 
   open() {
     this.setState({ showModal: true });
+  }
+	openReleaseModel() {
+    this.setState({ showReleaseModal: true });
   }
 	  
 	addItem(item){
@@ -41,7 +49,7 @@ class MyQueue extends React.Component {
 	
 	changeStatus(item){
 		debugger;
-			 this.setState({ showModal: false });
+			 this.setState({ showModal: false ,showReleaseModal: false});
 	}
 	
 	
@@ -49,8 +57,9 @@ class MyQueue extends React.Component {
    render() {
    const releasecolumns = [
 			 {
+				 id:'BusinessService',
     Header: 'BusinessService',
-    accessor: 'BusinessService' // String-based value accessors! 
+    accessor: "BusinessService" 
   }, 
 	   {
     Header: 'RequestedBy',
@@ -74,7 +83,7 @@ class MyQueue extends React.Component {
   }, 
 	   {
     Header: props => <span>Edit</span>, // Custom header components! 
-    Cell: row=> (<button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button>) 
+    Cell: row=> (<button type="button" className="btn btn-default" onClick={this.openReleaseModel}><span className="glyphicon glyphicon-edit"></span></button>) 
   }, 
 	   {
     Header: props => <span>Remove</span>, // Custom header components! ,
@@ -142,6 +151,21 @@ class MyQueue extends React.Component {
 			   <Button onClick={this.changeStatus}>Not Started</Button>
 			  <Button onClick={this.changeStatus}>Completed</Button>
             <Button ref="closebtn" onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+			  
+			  <Modal show={this.state.showReleaseModal} onHide={this.closeReleaseModel} >
+          <Modal.Header closeButton>
+            <Modal.Title><h4 className="modal-title" id="myModalLabel">New Release Request</h4></Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <h3>Release Request Details</h3>
+            <p>....</p>
+          </Modal.Body>
+          <Modal.Footer>
+			   <Button onClick={this.changeStatus}>Approved</Button>
+			   <Button onClick={this.changeStatus}>Rejected</Button>
+            <Button ref="closebtn" onClick={this.closeReleaseModel}>Close</Button>
           </Modal.Footer>
         </Modal>
          </div>
