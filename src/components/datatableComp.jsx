@@ -13,20 +13,19 @@ class ApprovedReleases extends React.Component{
 	}
 	
 	componentWillMount(){
-		
+		       
 		Request.get('https://randomuser.me/api/?results=3').then((response)=>{
-			debugger;
+			console.log(response.body.results);
 			this.setState({data:response.body.results});
-			
 		});
 		
-
+		
 	}
 	
 	render(){
 		
 		return (
-		<DataTable data={this.state.data}>
+		<DataTable data={this.state.data} tableClassName="table table-bordered">
         <Column label="Username" field="login.username" />
         <Column
           label="Full Name"
@@ -74,7 +73,8 @@ class ApprovedReleases extends React.Component{
           )}
         />
         <Column label="Email" field="email" />
-        <Column label={false} cell={row => <button>Action</button>} />
+        <Column label={false} cell={row => <button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button>}/>
+			<Column label={false} cell={row => <button type="button" className="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"><span className="glyphicon glyphicon-trash"></span></button>}/>
       </DataTable>)
 			}
 }

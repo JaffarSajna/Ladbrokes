@@ -1,20 +1,145 @@
-import React from 'react'
-import {Tabs, Tab} from 'react-bootstrap-tabs'
-import ApprovedReleases from '../components/datatableComp'
+import React from 'react';
+import {Tabs, Tab,Row, Col, NavItem, Nav} from 'react-bootstrap-tabs'
+import AddNewRequest from '../components/AddNewRequest.jsx'
+import MyRequestTable from '../components/datatable_MyRequest.jsx'
+import {Modal,Button} from 'react-bootstrap'
+var databody = require('../jsondata/myrequests.json')
 
 
 class MyQueue extends React.Component {
+	
+	
+   constructor(props){
+	   super(props);
+	   this.state={data:[],active:false,showModal:false,currentData:0}
+	   this.addItem=this.addItem.bind(this);
+	   this.close=this.close.bind(this);
+	      this.removeItem=this.removeItem.bind(this);
+	    this.open=this.open.bind(this);
+   }	
+	
+	
+	
+   componentWillMount(){
+	   this.setState({data:databody.releases,plans:databody.ApprovedPlans});
+      
+   }
+
+  close() {
+    this.setState({ showModal: false });
+  }
+
+  open() {
+    this.setState({ showModal: true });
+  }
+	  
+	addItem(item){
+		this.state.data.push(item);
+		this.setState({data:this.state.data});
+		this.render();
+	}	
+	
+	removeItem(item){
+		debugger;
+	this.state.data.pop();
+			 this.setState({ showModal: false });
+	}
+	
+	
+	
    render() {
- 
+   const releasecolumns = [
+			 {
+    Header: 'BusinessService',
+    accessor: 'BusinessService' // String-based value accessors! 
+  }, {
+    Header: 'RequestedBy',
+    accessor: 'RequestedBy',
+    Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
+  }, 
+	  {
+    id: 'Description', // Required because our accessor is not a string 
+    Header: 'Description',
+    accessor: d => d.Description // Custom value accessors! 
+  }, {
+    Header: 'PlannedStartDate',
+    accessor: 'PlannedStartDate',
+    Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
+  },
+	  {
+    id: 'PlannedEndDate', // Required because our accessor is not a string 
+    Header: 'PlannedEndDate',
+    accessor: d => d.PlannedEndDate // Custom value accessors! 
+  }, {
+    Header: props => <span>Edit</span>, // Custom header components! 
+    Cell: row=> (<button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button>) 
+  }
+	, {
+    Header: props => <span>Remove</span>, // Custom header components! ,
+	accessor: 'id',
+    Cell: row=> (<button type="button" className="btn btn-danger" onClick={this.open} ><span className="glyphicon glyphicon-trash"></span></button>) 
+  }];
+	   
+	     const plancolumns = [
+			 {
+    Header: 'Number',
+    accessor: 'Number' // String-based value accessors! 
+  }, {
+    Header: 'RequestedBy',
+    accessor: 'RequestedBy',
+    Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
+  }, 
+	  {
+    id: 'Approval', // Required because our accessor is not a string 
+    Header: 'Approval',
+    accessor: d => d.Approval // Custom value accessors! 
+  }, {
+    Header: 'ProjectName',
+    accessor: 'ProjectName',
+    Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
+  },
+  {
+    id: 'PlannedStartDate', // Required because our accessor is not a string 
+    Header: 'PlannedStartDate',
+    accessor: d => d.PlannedStartDate // Custom value accessors! 
+  }, {
+    id: 'PlannedEndDate', // Required because our accessor is not a string 
+    Header: 'PlannedEndDate',
+    accessor: d => d.PlannedEndDate // Custom value accessors! 
+  }, {
+    id: 'Stage', // Required because our accessor is not a string 
+    Header: 'Stage',
+    accessor: d => d.Stage // Custom value accessors! 
+  }, {
+    Header: props => <span>Update</span>, // Custom header components! 
+    Cell: row=> (<button type="button" className="btn btn-danger" onClick={this.open} ><span className="glyphicon glyphicon-edit"></span></button>) 
+  }
+	];
+	   
       return (
          <div>
             <h2>My Queue</h2>
 			<div className="box pad30 bgwhite table-responsive">
 			 <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-    		<Tab label="Approved" eventKey={1}><ApprovedReleases/></Tab>
-   			<Tab label="New" eventKey={2}><ApprovedReleases/>qwqw</Tab>
+    		<Tab label="Approved" eventKey={1}><MyRequestTable data={this.state.plans} cols={plancolumns} /></Tab>
+   			<Tab label="New" eventKey={2}><MyRequestTable data={this.state.data} cols={releasecolumns} /></Tab>
   			</Tabs>
 			</div>
+			  
+			  
+  <Modal show={this.state.showModal} onHide={this.close} >
+          <Modal.Header closeButton>
+            <Modal.Title><h4 className="modal-title" id="myModalLabel">Are you sure?</h4></Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <h3>You want to delete user?</h3>
+            <p>....</p>
+          </Modal.Body>
+          <Modal.Footer>
+			   <Button onClick={this.removeItem}>Yes</Button>
+            <Button ref="closebtn" onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
          </div>
       )
    }

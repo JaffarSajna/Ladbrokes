@@ -47,7 +47,7 @@ class Container extends React.Component {
          		<AppLink data={this.state.data} />
       			</div>
       			<div className="col-xs-6">
-      				<div className="pad10"><a href="#AddDetails"  data-toggle="modal" data-target="#AddUser" className="pull-right pad10"><span className="glyphicon glyphicon-plus"></span></a></div>
+      				<div className="pad10"><a href="#AddDetails"  data-toggle="modal" data-target="#AddNewRequest" className="pull-right pad10"><span className="glyphicon glyphicon-plus"></span></a></div>
       			</div>
       		</div>
       	</div>
