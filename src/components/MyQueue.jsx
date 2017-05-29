@@ -14,7 +14,7 @@ class MyQueue extends React.Component {
 	   this.state={data:[],active:false,showModal:false,currentData:0}
 	   this.addItem=this.addItem.bind(this);
 	   this.close=this.close.bind(this);
-	      this.removeItem=this.removeItem.bind(this);
+	      this.changeStatus=this.changeStatus.bind(this);
 	    this.open=this.open.bind(this);
    }	
 	
@@ -39,9 +39,8 @@ class MyQueue extends React.Component {
 		this.render();
 	}	
 	
-	removeItem(item){
+	changeStatus(item){
 		debugger;
-	this.state.data.pop();
 			 this.setState({ showModal: false });
 	}
 	
@@ -52,7 +51,8 @@ class MyQueue extends React.Component {
 			 {
     Header: 'BusinessService',
     accessor: 'BusinessService' // String-based value accessors! 
-  }, {
+  }, 
+	   {
     Header: 'RequestedBy',
     accessor: 'RequestedBy',
     Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
@@ -61,7 +61,8 @@ class MyQueue extends React.Component {
     id: 'Description', // Required because our accessor is not a string 
     Header: 'Description',
     accessor: d => d.Description // Custom value accessors! 
-  }, {
+  }, 
+	   {
     Header: 'PlannedStartDate',
     accessor: 'PlannedStartDate',
     Cell: props => <span className='number'>{props.value}</span> // Custom cell components! 
@@ -70,11 +71,12 @@ class MyQueue extends React.Component {
     id: 'PlannedEndDate', // Required because our accessor is not a string 
     Header: 'PlannedEndDate',
     accessor: d => d.PlannedEndDate // Custom value accessors! 
-  }, {
+  }, 
+	   {
     Header: props => <span>Edit</span>, // Custom header components! 
     Cell: row=> (<button type="button" className="btn btn-default" data-toggle="modal" data-target="#EditUser"><span className="glyphicon glyphicon-edit"></span></button>) 
-  }
-	, {
+  }, 
+	   {
     Header: props => <span>Remove</span>, // Custom header components! ,
 	accessor: 'id',
     Cell: row=> (<button type="button" className="btn btn-danger" onClick={this.open} ><span className="glyphicon glyphicon-trash"></span></button>) 
@@ -111,7 +113,7 @@ class MyQueue extends React.Component {
     Header: 'Stage',
     accessor: d => d.Stage // Custom value accessors! 
   }, {
-    Header: props => <span>Update</span>, // Custom header components! 
+    Header: props => <span>Status Update</span>, // Custom header components! 
     Cell: row=> (<button type="button" className="btn btn-danger" onClick={this.open} ><span className="glyphicon glyphicon-edit"></span></button>) 
   }
 	];
@@ -129,14 +131,16 @@ class MyQueue extends React.Component {
 			  
   <Modal show={this.state.showModal} onHide={this.close} >
           <Modal.Header closeButton>
-            <Modal.Title><h4 className="modal-title" id="myModalLabel">Are you sure?</h4></Modal.Title>
+            <Modal.Title><h4 className="modal-title" id="myModalLabel">Status Update</h4></Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <h3>You want to delete user?</h3>
+          <h3>Please click on current status of this release</h3>
             <p>....</p>
           </Modal.Body>
           <Modal.Footer>
-			   <Button onClick={this.removeItem}>Yes</Button>
+			   <Button onClick={this.changeStatus}>Started</Button>
+			   <Button onClick={this.changeStatus}>Not Started</Button>
+			  <Button onClick={this.changeStatus}>Completed</Button>
             <Button ref="closebtn" onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
